@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+langgraph
+langchain
+langchain-groq
+langchain-community
+langchain-chroma
+pypdf
+python-dotenv
+mcp[cli]
+chromadb
