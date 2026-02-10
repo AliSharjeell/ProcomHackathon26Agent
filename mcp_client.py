@@ -3,78 +3,91 @@ import shutil
 import asyncio
 from typing import Any, List, Optional
 from mcp import ClientSession, StdioServerParameters
-from mcp.client.stdio import studio_client
-from langchain_core.tools import Tool
+from mcp.client.stdio import stdio_client
+from langchain_core.tools import StructuredTool
+from pydantic import create_model, Field
+import json
+import shlex
 
-MCP_SERVER_COMMAND = os.getenv("MCP_SERVER_COMMAND", "npx")
-MCP_SERVER_ARGS = os.getenv("MCP_SERVER_ARGS", "").split()
+# Try to parse as JSON first (e.g. ["arg1", "arg 2"]), then fallback to shlex split
+raw_args = os.getenv("MCP_SERVER_ARGS", "")
+try:
+    MCP_SERVER_ARGS = json.loads(raw_args)
+    if not isinstance(MCP_SERVER_ARGS, list):
+        MCP_SERVER_ARGS = [str(MCP_SERVER_ARGS)]
+except json.JSONDecodeError:
+    MCP_SERVER_ARGS = shlex.split(raw_args)
+
+# Force python if not set, or use what's in env
+MCP_SERVER_COMMAND = os.getenv("MCP_SERVER_COMMAND", "python")
 
 class MCPClient:
     def __init__(self):
-        self.session: Optional[ClientSession] = None
-        self.exit_stack = None
+        pass
 
-    async def connect(self):
-        """
-        Connects to the MCP server via stdio.
-        """
-        # Ensure command exists
+    async def get_tools(self) -> List[StructuredTool]:
         if not shutil.which(MCP_SERVER_COMMAND):
-            print(f"Command {MCP_SERVER_COMMAND} not found.")
-            return
+            return []
 
         server_params = StdioServerParameters(
             command=MCP_SERVER_COMMAND,
             args=MCP_SERVER_ARGS,
         )
-
-        self.exit_stack = asyncio.ExitStack()
-        # We need to maintain the context manager alive
-        # This is a bit tricky in a synchronous-ish wrapper, but usually done via start/stop lifecycle
-        # For simplicity in this script, we'll assume usage within an async context or persistent session
         
-        # However, mcp python client relies on context managers. 
-        # We will use the studio_client context manager manually.
-        pass # Actual connection logic happens when retrieving tools or executing
-
-    async def get_tools(self) -> List[Tool]:
-        """
-        Connects to the MCP server, lists tools, and returns them as LangChain Tools.
-        """
         tools = []
-        if not shutil.which(MCP_SERVER_COMMAND):
-            return tools
-
-        server_params = StdioServerParameters(
-            command=MCP_SERVER_COMMAND,
-            args=MCP_SERVER_ARGS,
-        )
-        
-        async with studio_client(server_params) as (read, write):
-            async with ClientSession(read, write) as session:
-                await session.initialize()
-                mcp_tools = await session.list_tools()
-                
-                for tool in mcp_tools.tools:
-                    # Create a cleanup wrapper for execution to re-connect for each call
-                    # functionality in a persistent graph is complex with stdio unless process is kept alive.
-                    # For this simple setup, we will create a Tool that re-connects on execution.
-                    # This is inefficient but safe for stateless usage.
+        try:
+            async with stdio_client(server_params) as (read, write):
+                async with ClientSession(read, write) as session:
+                    await session.initialize()
+                    mcp_tools = await session.list_tools()
                     
-                    def create_runner(tool_name: str):
-                        async def runner(**kwargs):
-                            async with studio_client(server_params) as (r, w):
-                                async with ClientSession(r, w) as s:
-                                    await s.initialize()
-                                    result = await s.call_tool(tool_name, arguments=kwargs)
-                                    return result.content
-                        return runner
-                    
-                    langchain_tool = Tool(
-                        name=tool.name,
-                        description=tool.description or "",
-                        func=None,
-                        coroutine=create_runner(tool.name)
-                    )
-                    tools.append(langchain_tool)
+                    for tool in mcp_tools.tools:
+                        tools.append(self._convert_tool(tool, server_params))
+        except Exception as e:
+            print(f"Error fetching tools: {e}")
+            
         return tools
+
+    def _convert_tool(self, tool, server_params) -> StructuredTool:
+        def create_runner(tool_name: str):
+            async def runner(**kwargs):
+                async with stdio_client(server_params) as (r, w):
+                    async with ClientSession(r, w) as s:
+                        await s.initialize()
+                        result = await s.call_tool(tool_name, arguments=kwargs)
+                        return result.content
+            return runner
+        
+        # Create Pydantic model from JSON schema
+        fields = {}
+        if tool.inputSchema and "properties" in tool.inputSchema:
+            for prop_name, prop_def in tool.inputSchema["properties"].items():
+                prop_type = str
+                if prop_def.get("type") == "integer":
+                    prop_type = int
+                elif prop_def.get("type") == "number":
+                    prop_type = float
+                elif prop_def.get("type") == "boolean":
+                    prop_type = bool
+                elif prop_def.get("type") == "array":
+                    prop_type = list
+                elif prop_def.get("type") == "object":
+                    prop_type = dict
+                    
+                if "required" in tool.inputSchema and prop_name in tool.inputSchema["required"]:
+                    fields[prop_name] = (prop_type, Field(description=prop_def.get("description", "")))
+                else:
+                    fields[prop_name] = (Optional[prop_type], Field(default=None, description=prop_def.get("description", "")))
+        
+        if not fields:
+            SchemaModel = create_model(f"{tool.name}Model")
+        else:
+            SchemaModel = create_model(f"{tool.name}Model", **fields)
+        
+        return StructuredTool(
+            name=tool.name,
+            description=tool.description or "",
+            func=None,
+            coroutine=create_runner(tool.name),
+            args_schema=SchemaModel
+        )

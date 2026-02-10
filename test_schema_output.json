@@ -1,0 +1,33 @@
+{
+  "username": {
+    "description": "User name",
+    "title": "Username",
+    "type": "string"
+  },
+  "age": {
+    "anyOf": [
+      {
+        "type": "integer"
+      },
+      {
+        "type": "null"
+      }
+    ],
+    "default": null,
+    "description": "Age",
+    "title": "Age"
+  },
+  "active": {
+    "anyOf": [
+      {
+        "type": "boolean"
+      },
+      {
+        "type": "null"
+      }
+    ],
+    "default": null,
+    "description": "Is active",
+    "title": "Active"
+  }
+}

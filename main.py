@@ -6,7 +6,7 @@ from contextlib import asynccontextmanager
 from langchain_core.messages import HumanMessage
 
 from rag import ingest_pdf
-from graph import app_graph
+from graph import app_graph, shared_mcp_client
 from logger import log_interaction
 
 # Pydantic Models
@@ -26,7 +26,7 @@ async def lifespan(app: FastAPI):
     try:
         ingest_pdf()
     except Exception as e:
-        print(f"Error during PDF ingestion: {e}")
+        print(f"Error during startup: {e}")
     yield
     # Shutdown
     print("Shutting down...")
