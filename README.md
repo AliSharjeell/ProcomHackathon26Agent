@@ -45,7 +45,7 @@ OPENROUTER_API_KEY=your_openrouter_key
 PDF_FILE_PATH=path/to/your/document.pdf
 OLLAMA_BASE_URL=http://localhost:11434
 MCP_SERVER_COMMAND=uv
-MCP_SERVER_ARGS=["run", "path/to/mcp/server.py"]
+MCP_SERVER_ARGS=["run", "/ProcomBackendMCP/server.py"]
 ```
 
 ## Model Information

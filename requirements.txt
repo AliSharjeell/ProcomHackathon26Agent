@@ -9,3 +9,4 @@ pypdf
 python-dotenv
 mcp[cli]
 chromadb
+langgraph-checkpoint-sqlite

@@ -8,9 +8,8 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
 from langchain_core.output_parsers import StrOutputParser
 from langgraph.graph import StateGraph, END, START
-from langgraph.checkpoint.memory import MemorySaver
 
-from rag import get_retriever, ingest_pdf
+from rag import ingest_pdf
 from mcp_client import MCPClient
 
 # Load Environment Variables
@@ -117,7 +116,7 @@ async def mcp_node(state: AgentState):
         system_message = SystemMessage(content="""You are a helpful AI assistant. You have access to a set of tools.
 
         Rules:
-        1. ALWAYS ask for clarification if the user has not provided all necessary details (like username or password).
+        1. ALWAYS ask for clarification if the user has not provided all necessary details (like username or password, or PIN when required).
         2. When you have all the details, use the relevant tool to execute the action.
         3. After the tool runs, you will receive the output. Use that output to answer the user politely.
         4. Do NOT make up or guess parameter values.""")
@@ -210,8 +209,4 @@ workflow.add_conditional_edges(
 workflow.add_edge("rag", END)
 workflow.add_edge("mcp", END)
 
-# 4. Setup Checkpointer
-memory = MemorySaver()
-
-# 5. Compile
-app_graph = workflow.compile(checkpointer=memory)
+# Note: The app_graph compilation is now handled in main.py, so we only export 'workflow'.
