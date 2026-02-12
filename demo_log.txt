@@ -1,0 +1,30 @@
+Starting Demo Verification...
+Waiting for server...
+Server is ready.
+Verifying Demo Scenarios...
+
+--- Testing Scene 1: Bill Payment ---
+
+[User]: Hey, did the K-Electric bill for Home arrive? I lost the paper.
+Error: 500 Server Error: Internal Server Error for url: http://localhost:8001/chat
+
+[User]: Yes, please pay it. My PIN is 1234.
+Error: 500 Server Error: Internal Server Error for url: http://localhost:8001/chat
+
+--- Testing Scene 2: Netflix Trial ---
+
+[User]: I want to get this Netflix free trial, but I don't trust them not to charge me later.
+Error: 500 Server Error: Internal Server Error for url: http://localhost:8001/chat
+
+[User]: Just 100 rupees. My PIN is 1234.
+Error: 500 Server Error: Internal Server Error for url: http://localhost:8001/chat
+
+--- Testing Scene 5: Panic Mode ---
+
+[User]: I think my wallet was stolen! Lock everything!
+Error: 500 Server Error: Internal Server Error for url: http://localhost:8001/chat
+
+--- Testing Scene 6: Account Freeze ---
+
+[User]: Someone is trying to access my account! Freeze everything!
+Error: 500 Server Error: Internal Server Error for url: http://localhost:8001/chat

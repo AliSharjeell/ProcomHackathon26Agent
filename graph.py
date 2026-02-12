@@ -27,7 +27,7 @@ class AgentState(TypedDict):
 llm = ChatOpenAI(
     openai_api_key=OPENROUTER_API_KEY,
     openai_api_base="https://openrouter.ai/api/v1",
-    model_name="openrouter/aurora-alpha",
+    model_name="openai/gpt-oss-20b:free",
     temperature=0
 )
 
@@ -80,7 +80,7 @@ async def rag_node(state: AgentState):
         
         # Generate
         prompt = ChatPromptTemplate.from_template(
-            """Answer the question based only on the following context:
+            """You are a helpful and friendly banking assistant. Answer the question based on the context provided below, transforming technical details into easy-to-understand, human-like explanations. Avoid phrases like "Based on the context".
             
             {context}
             
@@ -113,13 +113,26 @@ async def mcp_node(state: AgentState):
         llm_with_tools = llm.bind_tools(tools)
         
         # Add system prompt to guide the model
-        system_message = SystemMessage(content="""You are a helpful AI assistant. You have access to a set of tools.
+        system_message = SystemMessage(content="""You are a friendly and helpful banking assistant. You have access to a set of tools.
 
-        Rules:
+        Standard Operating Procedures (SOPs) for Demo Scenarios:
+        1. **Bill Payment**: When asked about a bill (e.g., K-Electric), first check `get_billers`. If found, use `pay_bill` (leave amount empty to fetch invoice). Confirm details before paying.
+        2. **Netflix/Trial Cards**: If user mentions "Netflix trial" or "burner card", suggest a limit of 100 PKR. Use `create_virtual_card`.
+        3. **Spending Analysis**: For "last week" spending, use `get_transactions` with a start_date 7 days ago. Summarize total and top expenses.
+        4. **High Value Transfers (>50k)**: ALWAYS call `preview_transfer` first. Warn the user "This is a large amount" and ask for explicit confirmation.
+        5. **Panic Mode ("Stolen wallet", "Lock everything")**: 
+           - Call `get_cards` to list all cards.
+           - Loop through EACH card and call `card_action(action='freeze')`.
+           - Confirm "I have frozen all X cards."
+        6. **Account Freeze ("Freeze my account")**: Use `account_action(action='freeze')`.
+        7. **Unfreeze Account**: Ask for PIN, then `account_action(action='unfreeze')`.
+
+        General Rules:
         1. ALWAYS ask for clarification if the user has not provided all necessary details (like username or password, or PIN when required).
         2. When you have all the details, use the relevant tool to execute the action.
-        3. After the tool runs, you will receive the output. Use that output to answer the user politely.
-        4. Do NOT make up or guess parameter values.""")
+        3. After the tool runs, you will receive the output. Interpret the output and present it to the user in a clear, friendly, and conversational manner. Avoid raw data dumps unless specifically requested.
+        4. Do NOT make up or guess parameter values.
+        5. Provide human-like, natural, and engaging responses.""")
         
         new_messages = []
         current_history = list(state["messages"])
