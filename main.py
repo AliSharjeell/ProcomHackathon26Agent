@@ -1,5 +1,6 @@
 import os
 import uvicorn
+from typing import Optional, List, Any
 from fastapi import FastAPI, HTTPException, Request
 from pydantic import BaseModel
 from contextlib import asynccontextmanager
@@ -21,6 +22,7 @@ class ChatRequest(BaseModel):
 class ChatResponse(BaseModel):
     answer: str
     classification: str
+    tool_calls: Optional[List[Any]] = None  # [{name, args, result}]
 
 # Lifecycle Manager
 @asynccontextmanager
@@ -50,7 +52,8 @@ async def chat_endpoint(request: ChatRequest, req: Request):
         initial_state = {
             "messages": [HumanMessage(content=request.question)],
             "context": "",
-            "classification": ""
+            "classification": "",
+            "tool_calls": []
         }
         
         # Run graph
@@ -65,9 +68,20 @@ async def chat_endpoint(request: ChatRequest, req: Request):
         # Log interaction
         log_interaction(request.thread_id, request.question, last_message.content)
         
+        # Extract tool_calls if present
+        tool_calls_data = result.get("tool_calls", [])
+        
+        print(f"\n=== RESPONSE DEBUG ===")
+        print(f"Classification: {classification}")
+        print(f"Tool calls count: {len(tool_calls_data)}")
+        print(f"Tool calls data: {tool_calls_data}")
+        print(f"Answer preview: {last_message.content[:100]}...")
+        print(f"=== END DEBUG ===\n")
+        
         return ChatResponse(
             answer=last_message.content,
-            classification=classification
+            classification=classification,
+            tool_calls=tool_calls_data if tool_calls_data else None
         )
         
     except Exception as e:

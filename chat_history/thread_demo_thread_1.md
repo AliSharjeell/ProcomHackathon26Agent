@@ -495,3 +495,248 @@ Is there anything else I can help you with today—such as making a transfer, pa
 
 ---
 
+## Interaction at 2026-02-13 23:43:50
+
+**User**:  What's my account balance?
+
+**Assistant**: Your account’s available balance is **PKR 26,200**.  
+
+Let me know if there’s anything else you’d like to do—transfer money, pay a bill, set up a virtual card, or review recent transactions!
+
+---
+
+## Interaction at 2026-02-14 00:10:24
+
+**User**:  What is my balance?
+
+**Assistant**: Your account’s available balance is **PKR 26,200**.  
+
+Let me know if there’s anything else you’d like to do—transfer money, pay a bill, set up a virtual card, or review recent transactions!
+
+---
+
+## Interaction at 2026-02-14 00:11:29
+
+**User**:  What is my balance?
+
+**Assistant**: Your account’s available balance is **PKR 26,200**.  
+
+Let me know if there’s anything else you’d like to do—transfer money, pay a bill, set up a virtual card, or review recent transactions!
+
+---
+
+## Interaction at 2026-02-14 00:11:52
+
+**User**:  Can you transfer money to Ali?
+
+**Assistant**: Sure thing! To send money to Ali, I’ll need a couple of details:
+
+1. **How much** would you like to transfer (in PKR)?
+2. Your **4‑digit PIN** for verification.
+
+Once I have those, I’ll preview the transfer for you and then execute it once you confirm. Let me know!
+
+---
+
+## Interaction at 2026-02-14 00:36:53
+
+**User**:  What's my balance?
+
+**Assistant**: Your account’s available balance is **PKR 26,200**.  
+
+Let me know if you’d like to do anything else—transfer money, pay a bill, set up a virtual card, or review recent transactions!
+
+---
+
+## Interaction at 2026-02-14 00:38:05
+
+**User**:  Show my cards.
+
+**Assistant**: Here’s a quick snapshot of all the cards linked to your account:
+
+| Card ID | Type | Status | Masked PAN | Daily Limit | Expiry |
+|---------|------|--------|------------|-------------|--------|
+| **6c26ca80-39b7-4262-94b0-26a37ac801b5** | Physical | ACTIVE | **** **** **** 9000 | PKR 50,000 | 12/28 |
+| **5474550b-2949-4553-a8e4-85b97d5e2878** | Physical | ACTIVE | **** **** **** 9001 | PKR 50,000 | 12/28 |
+| **7b95eaeb-bbb0-4df7-a1ba-9bd364de64b7** | Physical | ACTIVE | **** **** **** 9002 | PKR 50,000 | 12/28 |
+| **a65d17ac-88d0-4609-85fe-59e41d1a00b9** | Virtual | ACTIVE | **** **** **** 1223 | PKR 100 | 12/28 |
+| **d18bf081-aea3-4783-b4fc-06923f7fe2b2** | Virtual | ACTIVE | **** **** **** 6255 | PKR 100 | 12/28 |
+| **60a06f71-1a82-44b2-ad03-f132e377bb10** | Virtual | ACTIVE | **** **** **** 2646 | PKR 100 | 12/28 |
+| **4684b54a-8120-44f7-bf0e-80b667ce20d0** | Virtual | **FROZEN** | **** **** **** 2881 | PKR 100 | 12/28 |
+
+**What’s next?**  
+- Want to freeze/unfreeze any of the active cards?  
+- Need to set a new spending limit or change a PIN?  
+- Or perhaps you’d like to create another virtual card for a different service?
+
+Just let me know what you’d like to do!
+
+---
+
+## Interaction at 2026-02-14 00:44:11
+
+**User**:  What is my balance?
+
+**Assistant**: Your account’s available balance is **PKR 26,200**.  
+
+Let me know if you’d like to do anything else—transfer money, pay a bill, set up a virtual card, or review recent transactions!
+
+---
+
+## Interaction at 2026-02-14 00:44:46
+
+**User**:  Show my cards.
+
+**Assistant**: Here’s a quick snapshot of all the cards linked to your account:
+
+| Card ID | Type | Status | Masked PAN | Daily Limit | Expiry |
+|---------|------|--------|------------|-------------|--------|
+| **6c26ca80-39b7-4262-94b0-26a37ac801b5** | Physical | ACTIVE | **** **** **** 9000 | PKR 50,000 | 12/28 |
+| **5474550b-2949-4553-a8e4-85b97d5e2878** | Physical | ACTIVE | **** **** **** 9001 | PKR 50,000 | 12/28 |
+| **7b95eaeb-bbb0-4df7-a1ba-9bd364de64b7** | Physical | ACTIVE | **** **** **** 9002 | PKR 50,000 | 12/28 |
+| **a65d17ac-88d0-4609-85fe-59e41d1a00b9** | Virtual | ACTIVE | **** **** **** 1223 | PKR 100 | 12/28 |
+| **d18bf081-aea3-4783-b4fc-06923f7fe2b2** | Virtual | ACTIVE | **** **** **** 6255 | PKR 100 | 12/28 |
+| **60a06f71-1a82-44b2-ad03-f132e377bb10** | Virtual | ACTIVE | **** **** **** 2646 | PKR 100 | 12/28 |
+| **4684b54a-8120-44f7-bf0e-80b667ce20d0** | Virtual | **FROZEN** | **** **** **** 2881 | PKR 100 | 12/28 |
+
+Let me know if you’d like to freeze/unfreeze any of these, change a limit, or do anything else!
+
+---
+
+## Interaction at 2026-02-14 00:46:20
+
+**User**:  What is my balance?
+
+**Assistant**: Your account’s available balance is **PKR 26,200**.  
+
+Let me know if there’s anything else you’d like to do—transfer money, pay a bill, set up a virtual card, or review recent transactions!
+
+---
+
+## Interaction at 2026-02-14 00:48:46
+
+**User**:  What's my balance?
+
+**Assistant**: Your account’s available balance is **PKR 26,200**.  
+
+Let me know if there’s anything else you’d like to do—transfer money, pay a bill, set up a virtual card, or review recent transactions!
+
+---
+
+## Interaction at 2026-02-14 00:49:57
+
+**User**:  Show me my cards.
+
+**Assistant**: 
+
+---
+
+## Interaction at 2026-02-14 00:50:22
+
+**User**:  Can you send money to Ali Khan?
+
+**Assistant**: Sure thing! To send money to **Ali Khan**, I’ll need a couple of details first:
+
+1. **How much** would you like to transfer (in PKR)?
+2. Your **4‑digit PIN** for verification.
+
+Once I have those, I’ll preview the transfer for you and then execute it once you confirm. Let me know!
+
+---
+
+## Interaction at 2026-02-14 00:51:22
+
+**User**:  100 and my pin is 1234
+
+**Assistant**: 
+
+---
+
+## Interaction at 2026-02-14 00:54:23
+
+**User**:  What is my balance?
+
+**Assistant**: Your current available balance is **PKR 26,200**.
+
+I’ve also prepared a preview for the ₹100 transfer to Ali Khan (total deduction PKR 100, leaving you with PKR 25,220 if you go ahead).  
+Would you like me to execute that transfer now? Just let me know!
+
+---
+
+## Interaction at 2026-02-14 00:55:10
+
+**User**:  No.
+
+**Assistant**: No – you can’t close your account from home or online. To close it, you’ll need to visit a branch in person. Bring your original CNIC, any unused cheque leaves, and your debit card so the teller can process the closure. If the account has been open for less than six months, a Rs. 1,000 fee will apply.
+
+---
+
+## Interaction at 2026-02-14 00:55:32
+
+**User**:  What is my account balance?
+
+**Assistant**: Your account’s available balance is **PKR 26,200**.  
+
+Let me know if there’s anything else you’d like to do—transfer money, pay a bill, set up a virtual card, or review recent transactions!
+
+---
+
+## Interaction at 2026-02-14 00:57:49
+
+**User**:  Can you create a virtual card for me?
+
+**Assistant**: Sure thing! I can set up a disposable virtual card for you.  
+To get started, could you let me know:
+
+1. **Label** – a short name for the card (e.g., “Netflix”, “Online Shopping”, “Travel”).
+2. **Spending limit** – how much you’d like to allow the card to spend (in PKR).
+3. **Your 4‑digit PIN** – for verification.
+
+Once I have those details, I’ll create the card right away. Let me know!
+
+---
+
+## Interaction at 2026-02-14 00:59:18
+
+**User**:  Can you tell me my balance?
+
+**Assistant**: Your current available balance is **PKR 25,320**. Let me know if there’s anything else you’d like to do—transfer money, pay a bill, set up a virtual card, or review recent transactions!
+
+---
+
+## Interaction at 2026-02-14 01:00:33
+
+**User**:  Can you show all my recent transactions?
+
+**Assistant**: 
+
+---
+
+## Interaction at 2026-02-14 01:06:09
+
+**User**:  What is my balance?
+
+**Assistant**: Your current available balance is **PKR 25,320**.  
+
+Let me know if you’d like to do anything else—transfer money, pay a bill, view recent transactions, or set up a virtual card!
+
+---
+
+## Interaction at 2026-02-14 01:09:34
+
+**User**:  What is my balance?
+
+**Assistant**: Your current available balance is **PKR 25,320**.  
+
+Let me know if you’d like to do anything else—transfer money, pay a bill, view recent transactions, or set up a virtual card!
+
+---
+
+## Interaction at 2026-02-14 01:13:58
+
+**User**:  .
+
+**Assistant**: I’m happy to help! Could you let me know what you’d like to know about the banking services or products mentioned?
+
+---
+

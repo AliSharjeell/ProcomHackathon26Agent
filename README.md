@@ -85,7 +85,8 @@ graph TD
   ```
 
 - An MCP Server (e.g., a banking server or brave search server) to connect to.
-- OpenRouter API Key (for the LLM).
+  - The `ProcomBackendMCP` server is included in this repo.
+  - Ensure the backend API is running locally at `https://localhost:8000/api/v1`.
 - `uv` (recommended for running the MCP server efficiently).
 
 ## Installation
@@ -113,7 +114,7 @@ OLLAMA_BASE_URL=http://localhost:11434
 # MCP Server Configuration
 # Example for a Python-based MCP server running with uv
 MCP_SERVER_COMMAND=uv
-MCP_SERVER_ARGS=["run", "/path/to/mcp/server.py"]
+MCP_SERVER_ARGS=["run", "ProcomBackendMCP/server.py"]
 ```
 
 ## Usage

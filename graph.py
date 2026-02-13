@@ -22,7 +22,9 @@ class AgentState(TypedDict):
     messages: Annotated[Sequence[BaseMessage], operator.add]
     context: str
     classification: str
+    tool_calls: list  # list of {name, args, result} dicts for frontend cards
 
+# 1. Setup LLMs (Ollama)
 # 1. Setup LLM (OpenRouter)
 llm = ChatOpenAI(
     openai_api_key=OPENROUTER_API_KEY,
@@ -115,6 +117,19 @@ async def mcp_node(state: AgentState):
         # Add system prompt to guide the model
         system_message = SystemMessage(content="""You are a friendly and helpful banking assistant. You have access to a set of tools.
 
+        CRITICAL RULE — ALWAYS USE TOOLS FOR LIVE DATA:
+        You MUST call the appropriate tool for ANY request involving real-time or user-specific data.
+        NEVER answer from memory or previous conversation history for financial data.
+        Even if you already discussed the user's balance, cards, transactions, or account info earlier,
+        you MUST call the tool again to get fresh, up-to-date data. Financial data changes constantly.
+        
+        Examples of when you MUST call a tool:
+        - "What is my balance?" → ALWAYS call get_balance
+        - "Show my cards" → ALWAYS call get_cards
+        - "My transactions" → ALWAYS call get_transactions
+        - "Show my contacts" → ALWAYS call get_contacts
+        - Any question about the user's account status → ALWAYS call the relevant tool
+
         Standard Operating Procedures (SOPs) for Demo Scenarios:
         1. **Bill Payment**: When asked about a bill (e.g., K-Electric), first check `get_billers`. If found, use `pay_bill` (leave amount empty to fetch invoice). Confirm details before paying.
         2. **Netflix/Trial Cards**: If user mentions "Netflix trial" or "burner card", suggest a limit of 100 PKR. Use `create_virtual_card`.
@@ -135,6 +150,7 @@ async def mcp_node(state: AgentState):
         5. Provide human-like, natural, and engaging responses.""")
         
         new_messages = []
+        collected_tool_calls = []  # Collect for frontend
         current_history = list(state["messages"])
         
         while True:
@@ -161,9 +177,18 @@ async def mcp_node(state: AgentState):
                         tool_result = await selected_tool.coroutine(**tool_call["args"])
                         print(f"Tool Result: {tool_result}")
                         
-                        # Convert tool result to string (MCP content is usually a list)
+                        # Convert tool result to string
+                        # MCP returns list of TextContent objects — extract .text
                         if isinstance(tool_result, list):
-                            content_str = "\n".join([str(c) for c in tool_result])
+                            parts = []
+                            for c in tool_result:
+                                if hasattr(c, 'text'):
+                                    parts.append(c.text)
+                                else:
+                                    parts.append(str(c))
+                            content_str = "\n".join(parts)
+                        elif hasattr(tool_result, 'text'):
+                            content_str = tool_result.text
                         else:
                             content_str = str(tool_result)
                             
@@ -172,6 +197,17 @@ async def mcp_node(state: AgentState):
                             tool_call_id=tool_call["id"],
                             content=content_str
                         )
+                        
+                        # Collect for frontend
+                        try:
+                            parsed = json.loads(content_str)
+                        except Exception:
+                            parsed = content_str
+                        collected_tool_calls.append({
+                            "name": tool_call["name"],
+                            "args": tool_call["args"],
+                            "result": parsed
+                        })
                     except Exception as te:
                         print(f"Tool execution error: {te}")
                         tool_message = ToolMessage(
@@ -190,7 +226,7 @@ async def mcp_node(state: AgentState):
             # After appending tool results, the loop continues to let the LLM see the results and respond
         
         print("--- MCP NODE END ---")
-        return {"messages": new_messages}
+        return {"messages": new_messages, "tool_calls": collected_tool_calls}
     except Exception as e:
         print(f"Error in mcp_node: {e}")
         import traceback
