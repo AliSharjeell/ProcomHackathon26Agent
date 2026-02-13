@@ -9,17 +9,36 @@ This project implements a routing agent using LangGraph. It intelligently classi
 - **RAG Node**: Handles questions about policies, fees, and static documentation by retrieving relevant context from a PDF.
 - **MCP Node**: Handles action-oriented requests (e.g., checking balances, transfers) by interacting with an external MCP server.
 
-## Architecture
+## Technical Architecture
 
 The system is built on a modular architecture orchestrating three main components:
 
-1. **FastAPI Entry Point**: Receives HTTP requests (`/chat`) and initializes the LangGraph workflow.
-2. **LangGraph Controller**: Manages the state and flow of the conversation. It starts with a **Classifier Node** that uses an LLM to determine intent:
-    - **Retrieval (RAG)**: If the query is about static knowledge (policies, fees), it routes to the **RAG Node**. This node retrieves relevant chunks from a vector database (ChromaDB) populated from a PDF document and answers using the LLM.
-    - **Action (MCP)**: If the query implies an action or dynamic data access (checking balance), it routes to the **MCP Node**. This node connects to an external MCP server process via standard input/output (stdio) to execute tools.
-3. **MCP Client**: A standardized client that communicates with any MCP-compliant server, allowing the agent to extend its capabilities dynamically.
+1. **FastAPI Entry Point (`main.py`)**:
+    - Host the application using `uvicorn`.
+    - Manages the application lifecycle (startup/shutdown events).
+    - Initializes the `checkpoints.sqlite` database for LangGraph state persistence.
+    - Exposes the POST `/chat` endpoint which accepts a `question` and `thread_id`.
 
-### System Workflow
+2. **LangGraph Controller (`graph.py`)**:
+    - **State Management**: Uses `AgentState` (TypedDict) to track `messages`, `context`, and `classification`.
+    - **Workflow Nodes**:
+        - **Classifier Node**: Uses an LLM (via OpenRouter) with a specialized prompt to classify user intent into "rag" (informational) or "mcp" (actionable).
+        - **RAG Node**: Queries the vector store and synthesizes an answer using the LLM.
+        - **MCP Node**: Connects to the external MCP server, lists available tools, binds them to the LLM, and executes tools in a loop until the task is complete.
+    - **Routing**: Conditional edges based on the classification result steer the flow to either the RAG or MCP node.
+
+3. **MCP Client (`mcp_client.py`)**:
+    - Implements a standard `MCPClient` class.
+    - **Connection**: Establishes a stdio connection to the subprocess specified by `MCP_SERVER_COMMAND` and `MCP_SERVER_ARGS`.
+    - **Tool Discovery**: Dynamically lists tools from the connected server.
+    - **Execution**: Converts MCP tool definitions into LangChain `StructuredTool` objects, allowing the LLM to invoke them directly.
+
+4. **RAG System (`rag.py`)**:
+    - **Ingestion**: Loads a PDF, splits it into chunks (RecursiveCharacterTextSplitter), and embeds them using Ollama (`nomic-embed-text`).
+    - **Storage**: Persists embeddings in a local `chroma_db` directory.
+    - **Retrieval**: Uses semantic search to find relevant document chunks for a given query.
+
+### Data Flow
 
 ```mermaid
 graph TD
