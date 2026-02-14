@@ -1,0 +1,325 @@
+Extracted: {
+  "voice": "You have already paid your K-Electric bill. Would you like to check your transactions?",
+  "visual": {
+    "type": "COMPOSITE_FORM",
+    "data": {
+      "title": "Check Transactions",
+      "widgets": [
+        {
+          "id": "transaction_type",
+          "type": "select",
+          "label": "Transaction Type",
+          "options": [
+            "All",
+            "Transfer",
+            "Bill Pay",
+            "Card"
+          ]
+        },
+        {
+          "id": "date_range",
+          "type": "date_range",
+          "label": "Date Range"
+        }
+      ]
+
+Extracted: {
+  "voice": "To transfer money, I need to know the recipient's details. Please provide the recipient's name or account number.",
+  "visual": {
+    "type": "COMPOSITE_FORM",
+    "state": "initial",
+    "data": {
+      "title": "Transfer Money",
+      "widgets": [
+        {
+          "id": "recipient_id",
+          "type": "input",
+          "label": "Recipient's name or account number"
+        }
+      ]
+
+Extracted: {
+  "voice": "Confirm transfer of PKR 5,000 to Ali Khan. Your balance will be PKR 11,820 after this transfer.",
+  "visual": {
+    "type": "CONFIRMATION_CARD",
+    "state": "initial",
+    "data": {
+      "title": "Confirm Transfer",
+      "fields": [
+        {
+          "label": "To",
+          "value": "Ali Khan"
+        },
+        {
+          "label": "Amount",
+          "value": "PKR 5,000"
+        }
+      ]
+
+Extracted: {
+  "voice": "Here are your cards: 7***************02 (Physical), 7***************23 (Virtual), 7***************55 (Virtual), 6***************46 (Virtual), 4***************81 (Virtual), 6***************00 (Physical), 5***************01 (Physical)",
+  "visual": {
+    "type": "SELECTION_LIST",
+    "state": "initial",
+    "data": {
+      "title": "Your Cards",
+      "items": [
+        {
+          "id": "7b95eaeb-bbb0-4df7-a1ba-9bd364de64b7",
+          "title": "**** **** **** 9002 (Physical)"
+        },
+        {
+          "id": "a65d17ac-88d0-4609-85fe-59e41d1a00b9",
+          "title": "**** **** **** 1223 (Virtual)"
+        },
+        {
+          "id": "d18bf081-aea3-4783-b4fc-06923f7fe2b2",
+          "title": "**** **** **** 6255 (Virtual)"
+        },
+        {
+          "id": "60a06f71-1a82-44b2-ad03-f132e377bb10",
+          "title": "**** **** **** 2646 (Virtual)"
+        },
+        {
+          "id": "4684b54a-8120-44f7-bf0e-80b667ce20d0",
+          "title": "**** **** **** 2881 (Virtual)"
+        },
+        {
+          "id": "6c26ca80-39b7-4262-94b0-26a37ac801b5",
+          "title": "**** **** **** 9000 (Physical)"
+        },
+        {
+          "id": "5474550b-2949-4553-a8e4-85b97d5e2878",
+          "title": "**** **** **** 9001 (Physical)"
+        }
+      ]
+
+Extracted: {
+  "voice": "Here are your cards: ",
+  "visual": {
+    "type": "SELECTION_LIST",
+    "data": {
+      "title": "Select a card",
+      "items": [
+        {
+          "id": "7b95eaeb-bbb0-4df7-a1ba-9bd364de64b7",
+          "title": "Card ending with 9002"
+        },
+        {
+          "id": "a65d17ac-88d0-4609-85fe-59e41d1a00b9",
+          "title": "Card ending with 1223"
+        },
+        {
+          "id": "d18bf081-aea3-4783-b4fc-06923f7fe2b2",
+          "title": "Card ending with 6255"
+        },
+        {
+          "id": "60a06f71-1a82-44b2-ad03-f132e377bb10",
+          "title": "Card ending with 2646"
+        },
+        {
+          "id": "4684b54a-8120-44f7-bf0e-80b667ce20d0",
+          "title": "Card ending with 2881 (FROZEN)"
+        },
+        {
+          "id": "6c26ca80-39b7-4262-94b0-26a37ac801b5",
+          "title": "Card ending with 9000 (FROZEN)"
+        },
+        {
+          "id": "5474550b-2949-4553-a8e4-85b97d5e2878",
+          "title": "Card ending with 9001 (FROZEN)"
+        }
+      ]
+
+Extracted: {
+  "voice": "To transfer money, I need to know the recipient's details and the amount you'd like to transfer. Let's get started.",
+  "visual": {
+    "type": "COMPOSITE_FORM",
+    "data": {
+      "title": "Transfer Money",
+      "widgets": [
+        {
+          "id": "recipient",
+          "type": "input",
+          "label": "Recipient's Name or Account Number"
+        },
+        {
+          "id": "amount",
+          "type": "input",
+          "label": "Amount to Transfer"
+        }
+      ]
+
+Extracted: {
+  "voice": "Confirm transfer of 5000 PKR to Ali Khan. Your new balance will be 11820 PKR.",
+  "visual": {
+    "type": "CONFIRMATION_CARD",
+    "data": {
+      "title": "Confirm Transfer",
+      "fields": [
+        {"label": "To", "value": "Ali Khan"},
+        {"label": "Amount", "value": "5000 PKR"}
+      ]
+
+Extracted: {
+  "voice": "Here are your cards: 7b95eaeb-bbb0-4df7-a1ba-9bd364de64b7 (**** **** **** 9002), a65d17ac-88d0-4609-85fe-59e41d1a00b9 (**** **** **** 1223), d18bf081-aea3-4783-b4fc-06923f7fe2b2 (**** **** **** 6255), 60a06f71-1a82-44b2-ad03-f132e377bb10 (**** **** **** 2646), 4684b54a-8120-44f7-bf0e-80b667ce20d0 (**** **** **** 2881), 6c26ca80-39b7-4262-94b0-26a37ac801b5 (**** **** **** 9000), 5474550b-2949-4553-a8e4-85b97d5e2878 (**** **** **** 9001).",
+  "visual": {
+    "type": "SELECTION_LIST",
+    "data": {
+      "title": "Your Cards",
+      "items": [
+        {"id": "7b95eaeb-bbb0-4df7-a1ba-9bd364de64b7", "title": "**** **** **** 9002"},
+        {"id": "a65d17ac-88d0-4609-85fe-59e41d1a00b9", "title": "**** **** **** 1223"},
+        {"id": "d18bf081-aea3-4783-b4fc-06923f7fe2b2", "title": "**** **** **** 6255"},
+        {"id": "60a06f71-1a82-44b2-ad03-f132e377bb10", "title": "**** **** **** 2646"},
+        {"id": "4684b54a-8120-44f7-bf0e-80b667ce20d0", "title": "**** **** **** 2881"},
+        {"id": "6c26ca80-39b7-4262-94b0-26a37ac801b5", "title": "**** **** **** 9000"},
+        {"id": "5474550b-2949-4553-a8e4-85b97d5e2878", "title": "**** **** **** 9001"}
+      ]
+
+Extracted: {
+  "voice": "To pay your K-Electric bill, I need to know your consumer number or biller ID. Let's get started.",
+  "visual": {
+    "type": "COMPOSITE_FORM",
+    "data": {
+      "title": "Pay K-Electric Bill",
+      "widgets": [
+        {
+          "id": "consumer_number",
+          "type": "input",
+          "label": "Consumer Number"
+        },
+        {
+          "id": "biller_id",
+          "type": "input",
+          "label": "Biller ID (optional)"
+        }
+      ]
+
+Extracted: {
+  "voice": "Please confirm to transfer 1000 PKR to Ali Khan.",
+  "visual": {
+    "type": "CONFIRMATION_CARD",
+    "state": "",
+    "data": {
+      "title": "Confirm Transfer",
+      "fields": [
+        {
+          "label": "To",
+          "value": "Ali Khan"
+        },
+        {
+          "label": "Amount",
+          "value": "1000 PKR"
+        }
+      ]
+
+Extracted: {"voice": "Please confirm to transfer 5000 PKR to Ali Khan.", "visual": {"type": "CONFIRMATION_CARD", "state": "", "data": {"title": "Confirm Transfer", "fields": [{"label": "To", "value": "Ali Khan"}, {"label": "Amount", "value": "5000 PKR"}]
+Extracted: {
+  "voice": "Here are your cards",
+  "visual": {
+    "type": "SELECTION_LIST",
+    "state": "",
+    "data": {
+      "title": "Select a card",
+      "items": [
+        {"id": "7b95eaeb-bbb0-4df7-a1ba-9bd364de64b7", "title": "**** **** **** 9002 (Debit)"},
+        {"id": "a65d17ac-88d0-4609-85fe-59e41d1a00b9", "title": "**** **** **** 1223 (Virtual)"},
+        {"id": "d18bf081-aea3-4783-b4fc-06923f7fe2b2", "title": "**** **** **** 6255 (Virtual)"},
+        {"id": "60a06f71-1a82-44b2-ad03-f132e377bb10", "title": "**** **** **** 2646 (Virtual)"},
+        {"id": "4684b54a-8120-44f7-bf0e-80b667ce20d0", "title": "**** **** **** 2881 (Virtual)"},
+        {"id": "6c26ca80-39b7-4262-94b0-26a37ac801b5", "title": "**** **** **** 9000 (Debit)"},
+        {"id": "5474550b-2949-4553-a8e4-85b97d5e2878", "title": "**** **** **** 9001 (Debit)"}
+      ]
+
+Extracted: {"voice": "Please enter your K-Electric consumer number.", "visual": {"type": "COMPOSITE_FORM", "state": "", "data": {"title": "Pay K-Electric Bill", "widgets": [{"id": "consumer_number", "type": "input", "label": "Consumer Number"}]
+Extracted: {"voice": "You spent a total of 201,039 PKR last month. The top category was food with 48,000 PKR spent.", "visual": {"type": "INFO_TABLE", "state": "", "data": {"title": "Spending Summary", "headers": ["Category", "Amount (PKR)"],
+Extracted: {
+  "voice": "To transfer money, I need to know the recipient's details. Please provide the recipient's name or account number.",
+  "visual": {
+    "type": "COMPOSITE_FORM",
+    "state": "initial",
+    "data": {
+      "title": "Transfer Money",
+      "widgets": [
+        {
+          "id": "recipient_id",
+          "type": "input",
+          "label": "Recipient's Name or Account Number"
+        }
+      ]
+
+Initial JSON parse failed: Expecting ',' delimiter: line 15 column 1 (char 407). Attempting repair...
+Repair FAILED with '}': Expecting ',' delimiter: line 15 column 2 (char 408)
+Repair FAILED with '}}': Expecting ',' delimiter: line 15 column 3 (char 409)
+Repair SUCCESS with '}}}'
+Extracted: {
+  "voice": "Confirm transfer of PKR 5,000 to Ali Khan. Your balance will be PKR 11,820 after this transfer.",
+  "visual": {
+    "type": "CONFIRMATION_CARD",
+    "state": "initial",
+    "data": {
+      "title": "Confirm Transfer",
+      "fields": [
+        {"label": "To", "value": "Ali Khan"},
+        {"label": "Amount", "value": "PKR 5,000"}
+      ]
+
+Initial JSON parse failed: Expecting ',' delimiter: line 12 column 1 (char 354). Attempting repair...
+Repair FAILED with '}': Expecting ',' delimiter: line 12 column 2 (char 355)
+Repair FAILED with '}}': Expecting ',' delimiter: line 12 column 3 (char 356)
+Repair SUCCESS with '}}}'
+Extracted: {
+  "voice": "Here are your cards: 7b95eaeb-bbb0-4df7-a1ba-9bd364de64b7 (ending in 9002), a65d17ac-88d0-4609-85fe-59e41d1a00b9 (ending in 1223), d18bf081-aea3-4783-b4fc-06923f7fe2b2 (ending in 6255), 60a06f71-1a82-44b2-ad03-f132e377bb10 (ending in 2646), 4684b54a-8120-44f7-bf0e-80b667ce20d0 (ending in 2881), 6c26ca80-39b7-4262-94b0-26a37ac801b5 (ending in 9000), 5474550b-2949-4553-a8e4-85b97d5e2878 (ending in 9001).",
+  "visual": {
+    "type": "SELECTION_LIST",
+    "state": "initial",
+    "data": {
+      "title": "Your Cards",
+      "items": [
+        {"id": "7b95eaeb-bbb0-4df7-a1ba-9bd364de64b7", "title": "**** **** **** 9002"},
+        {"id": "a65d17ac-88d0-4609-85fe-59e41d1a00b9", "title": "**** **** **** 1223"},
+        {"id": "d18bf081-aea3-4783-b4fc-06923f7fe2b2", "title": "**** **** **** 6255"},
+        {"id": "60a06f71-1a82-44b2-ad03-f132e377bb10", "title": "**** **** **** 2646"},
+        {"id": "4684b54a-8120-44f7-bf0e-80b667ce20d0", "title": "**** **** **** 2881"},
+        {"id": "6c26ca80-39b7-4262-94b0-26a37ac801b5", "title": "**** **** **** 9000"},
+        {"id": "5474550b-2949-4553-a8e4-85b97d5e2878", "title": "**** **** **** 9001"}
+      ]
+
+Initial JSON parse failed: Expecting ',' delimiter: line 17 column 1 (char 1173). Attempting repair...
+Repair FAILED with '}': Expecting ',' delimiter: line 17 column 2 (char 1174)
+Repair FAILED with '}}': Expecting ',' delimiter: line 17 column 3 (char 1175)
+Repair SUCCESS with '}}}'
+Extracted: {
+  "voice": "To pay your K-Electric bill, I need to know your consumer number or biller ID. Please provide one of these details.",
+  "visual": {
+    "type": "COMPOSITE_FORM",
+    "state": "initial",
+    "data": {
+      "title": "Pay K-Electric Bill",
+      "widgets": [
+        {"id": "consumer_number", "type": "input", "label": "Consumer Number"},
+        {"id": "biller_id", "type": "input", "label": "Biller ID (optional)"}
+      ]
+
+Initial JSON parse failed: Expecting ',' delimiter: line 12 column 1 (char 437). Attempting repair...
+Repair FAILED with '}': Expecting ',' delimiter: line 12 column 2 (char 438)
+Repair FAILED with '}}': Expecting ',' delimiter: line 12 column 3 (char 439)
+Repair SUCCESS with '}}}'
+Extracted: {
+  "voice": "You spent a total of PKR 201,039 last month. The top spending category was food at PKR 48,000.",
+  "visual": {
+    "type": "INFO_TABLE",
+    "data": {
+      "title": "Spending Summary",
+      "headers": ["Category", "Amount (PKR)"],
+
+Initial JSON parse failed: Expecting property name enclosed in double quotes: line 8 column 1 (char 247). Attempting repair...
+Repair FAILED with '}': Illegal trailing comma before end of object: line 7 column 46 (char 245)
+Repair FAILED with '}}': Illegal trailing comma before end of object: line 7 column 46 (char 245)
+Repair FAILED with '}}}': Illegal trailing comma before end of object: line 7 column 46 (char 245)
+Repair FAILED with ']}': Expecting property name enclosed in double quotes: line 8 column 1 (char 247)
+Repair FAILED with ']}}': Expecting property name enclosed in double quotes: line 8 column 1 (char 247)
+Repair FAILED with '"]}': Unterminated string starting at: line 8 column 1 (char 247)
+Repair FAILED with '"]}}': Unterminated string starting at: line 8 column 1 (char 247)
+Repair FAILED with '": null}}': Unterminated string starting at: line 8 column 1 (char 247)

@@ -1,0 +1,523 @@
+Regex Recovery Failed: Expecting ',' delimiter: line 25 column 1 (char 584)
+Error Str Snippet: ual": {\n    "type": "COMPOSITE_FORM",\n    "data": {\n      "title": "Check Transactions",\n      "widgets": [\n        {\n          "id": "transaction_type",\n          "type": "select",\n          "label": "Transaction Type",\n          "options": [\n            "All",\n            "Transfer",\n            "Bill Pay",\n            "Card"\n          ]\n        },\n        {\n          "id": "date_range",\n          "type": "date_range",\n          "label": "Date Range"\n        }\n      ]\n'}}
+MCP Node Error: Error code: 400 - {'error': {'message': "Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '{\n  "voice": "You have already paid your K-Electric bill. Would you like to check your transactions?",\n  "visual": {\n    "type": "COMPOSITE_FORM",\n    "data": {\n      "title": "Check Transactions",\n      "widgets": [\n        {\n          "id": "transaction_type",\n          "type": "select",\n          "label": "Transaction Type",\n          "options": [\n            "All",\n            "Transfer",\n            "Bill Pay",\n            "Card"\n          ]\n        },\n        {\n          "id": "date_range",\n          "type": "date_range",\n          "label": "Date Range"\n        }\n      ]\n'}}
+Traceback (most recent call last):
+  File "C:\Apps New\Hackathon Procom\ProcomHackathon26Agent\graph.py", line 179, in mcp_node
+    response = await llm_with_tools.ainvoke(full_messages)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\runnables\base.py", line 5708, in ainvoke
+    return await self.bound.ainvoke(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 425, in ainvoke
+    llm_result = await self.agenerate_prompt(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 1132, in agenerate_prompt
+    return await self.agenerate(
+           ^^^^^^^^^^^^^^^^^^^^^
+        prompt_messages, stop=stop, callbacks=callbacks, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 1090, in agenerate
+    raise exceptions[0]
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 1359, in _agenerate_with_cache
+    result = await self._agenerate(
+             ^^^^^^^^^^^^^^^^^^^^^^
+        messages, stop=stop, run_manager=run_manager, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_openai\chat_models\base.py", line 1634, in _agenerate
+    raise e
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_openai\chat_models\base.py", line 1627, in _agenerate
+    raw_response = await self.async_client.with_raw_response.create(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **payload
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\_legacy_response.py", line 381, in wrapped
+    return cast(LegacyAPIResponse[R], await func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\resources\chat\completions\completions.py", line 2678, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+    ...<49 lines>...
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\_base_client.py", line 1884, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\_base_client.py", line 1669, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': "Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '{\n  "voice": "You have already paid your K-Electric bill. Would you like to check your transactions?",\n  "visual": {\n    "type": "COMPOSITE_FORM",\n    "data": {\n      "title": "Check Transactions",\n      "widgets": [\n        {\n          "id": "transaction_type",\n          "type": "select",\n          "label": "Transaction Type",\n          "options": [\n            "All",\n            "Transfer",\n            "Bill Pay",\n            "Card"\n          ]\n        },\n        {\n          "id": "date_range",\n          "type": "date_range",\n          "label": "Date Range"\n        }\n      ]\n'}}
+Regex Recovery Failed: Expecting ',' delimiter: line 15 column 1 (char 407)
+Error Str Snippet: invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '{\n  "voice": "To transfer money, I need to know the recipient\'s details. Please provide the recipient\'s name or account number.",\n  "visual": {\n    "type": "COMPOSITE_FORM",\n    "state": "initial",\n    "data": {\n      "title": "Transfer Money",\n      "widgets": [\n        {\n          "id": "recipient_id",\n          "type": "input",\n          "label": "Recipient\'s name or account number"\n        }\n      ]\n'}}
+MCP Node Error: Error code: 400 - {'error': {'message': "Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '{\n  "voice": "To transfer money, I need to know the recipient\'s details. Please provide the recipient\'s name or account number.",\n  "visual": {\n    "type": "COMPOSITE_FORM",\n    "state": "initial",\n    "data": {\n      "title": "Transfer Money",\n      "widgets": [\n        {\n          "id": "recipient_id",\n          "type": "input",\n          "label": "Recipient\'s name or account number"\n        }\n      ]\n'}}
+Traceback (most recent call last):
+  File "C:\Apps New\Hackathon Procom\ProcomHackathon26Agent\graph.py", line 179, in mcp_node
+    response = await llm_with_tools.ainvoke(full_messages)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\runnables\base.py", line 5708, in ainvoke
+    return await self.bound.ainvoke(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 425, in ainvoke
+    llm_result = await self.agenerate_prompt(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 1132, in agenerate_prompt
+    return await self.agenerate(
+           ^^^^^^^^^^^^^^^^^^^^^
+        prompt_messages, stop=stop, callbacks=callbacks, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 1090, in agenerate
+    raise exceptions[0]
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 1359, in _agenerate_with_cache
+    result = await self._agenerate(
+             ^^^^^^^^^^^^^^^^^^^^^^
+        messages, stop=stop, run_manager=run_manager, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_openai\chat_models\base.py", line 1634, in _agenerate
+    raise e
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_openai\chat_models\base.py", line 1627, in _agenerate
+    raw_response = await self.async_client.with_raw_response.create(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **payload
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\_legacy_response.py", line 381, in wrapped
+    return cast(LegacyAPIResponse[R], await func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\resources\chat\completions\completions.py", line 2678, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+    ...<49 lines>...
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\_base_client.py", line 1884, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\_base_client.py", line 1669, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': "Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '{\n  "voice": "To transfer money, I need to know the recipient\'s details. Please provide the recipient\'s name or account number.",\n  "visual": {\n    "type": "COMPOSITE_FORM",\n    "state": "initial",\n    "data": {\n      "title": "Transfer Money",\n      "widgets": [\n        {\n          "id": "recipient_id",\n          "type": "input",\n          "label": "Recipient\'s name or account number"\n        }\n      ]\n'}}
+Regex Recovery Failed: Expecting ',' delimiter: line 18 column 1 (char 414)
+Error Str Snippet: _request_error', 'code': 'tool_use_failed', 'failed_generation': '{\n  "voice": "Confirm transfer of PKR 5,000 to Ali Khan. Your balance will be PKR 11,820 after this transfer.",\n  "visual": {\n    "type": "CONFIRMATION_CARD",\n    "state": "initial",\n    "data": {\n      "title": "Confirm Transfer",\n      "fields": [\n        {\n          "label": "To",\n          "value": "Ali Khan"\n        },\n        {\n          "label": "Amount",\n          "value": "PKR 5,000"\n        }\n      ]\n'}}
+MCP Node Error: Error code: 400 - {'error': {'message': "Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '{\n  "voice": "Confirm transfer of PKR 5,000 to Ali Khan. Your balance will be PKR 11,820 after this transfer.",\n  "visual": {\n    "type": "CONFIRMATION_CARD",\n    "state": "initial",\n    "data": {\n      "title": "Confirm Transfer",\n      "fields": [\n        {\n          "label": "To",\n          "value": "Ali Khan"\n        },\n        {\n          "label": "Amount",\n          "value": "PKR 5,000"\n        }\n      ]\n'}}
+Traceback (most recent call last):
+  File "C:\Apps New\Hackathon Procom\ProcomHackathon26Agent\graph.py", line 179, in mcp_node
+    response = await llm_with_tools.ainvoke(full_messages)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\runnables\base.py", line 5708, in ainvoke
+    return await self.bound.ainvoke(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 425, in ainvoke
+    llm_result = await self.agenerate_prompt(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 1132, in agenerate_prompt
+    return await self.agenerate(
+           ^^^^^^^^^^^^^^^^^^^^^
+        prompt_messages, stop=stop, callbacks=callbacks, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 1090, in agenerate
+    raise exceptions[0]
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 1359, in _agenerate_with_cache
+    result = await self._agenerate(
+             ^^^^^^^^^^^^^^^^^^^^^^
+        messages, stop=stop, run_manager=run_manager, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_openai\chat_models\base.py", line 1634, in _agenerate
+    raise e
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_openai\chat_models\base.py", line 1627, in _agenerate
+    raw_response = await self.async_client.with_raw_response.create(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **payload
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\_legacy_response.py", line 381, in wrapped
+    return cast(LegacyAPIResponse[R], await func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\resources\chat\completions\completions.py", line 2678, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+    ...<49 lines>...
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\_base_client.py", line 1884, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\_base_client.py", line 1669, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': "Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '{\n  "voice": "Confirm transfer of PKR 5,000 to Ali Khan. Your balance will be PKR 11,820 after this transfer.",\n  "visual": {\n    "type": "CONFIRMATION_CARD",\n    "state": "initial",\n    "data": {\n      "title": "Confirm Transfer",\n      "fields": [\n        {\n          "label": "To",\n          "value": "Ali Khan"\n        },\n        {\n          "label": "Amount",\n          "value": "PKR 5,000"\n        }\n      ]\n'}}
+Regex Recovery Failed: Expecting ',' delimiter: line 38 column 1 (char 1283)
+Error Str Snippet: -44b2-ad03-f132e377bb10",\n          "title": "**** **** **** 2646 (Virtual)"\n        },\n        {\n          "id": "4684b54a-8120-44f7-bf0e-80b667ce20d0",\n          "title": "**** **** **** 2881 (Virtual)"\n        },\n        {\n          "id": "6c26ca80-39b7-4262-94b0-26a37ac801b5",\n          "title": "**** **** **** 9000 (Physical)"\n        },\n        {\n          "id": "5474550b-2949-4553-a8e4-85b97d5e2878",\n          "title": "**** **** **** 9001 (Physical)"\n        }\n      ]\n'}}
+MCP Node Error: Error code: 400 - {'error': {'message': "Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '{\n  "voice": "Here are your cards: 7***************02 (Physical), 7***************23 (Virtual), 7***************55 (Virtual), 6***************46 (Virtual), 4***************81 (Virtual), 6***************00 (Physical), 5***************01 (Physical)",\n  "visual": {\n    "type": "SELECTION_LIST",\n    "state": "initial",\n    "data": {\n      "title": "Your Cards",\n      "items": [\n        {\n          "id": "7b95eaeb-bbb0-4df7-a1ba-9bd364de64b7",\n          "title": "**** **** **** 9002 (Physical)"\n        },\n        {\n          "id": "a65d17ac-88d0-4609-85fe-59e41d1a00b9",\n          "title": "**** **** **** 1223 (Virtual)"\n        },\n        {\n          "id": "d18bf081-aea3-4783-b4fc-06923f7fe2b2",\n          "title": "**** **** **** 6255 (Virtual)"\n        },\n        {\n          "id": "60a06f71-1a82-44b2-ad03-f132e377bb10",\n          "title": "**** **** **** 2646 (Virtual)"\n        },\n        {\n          "id": "4684b54a-8120-44f7-bf0e-80b667ce20d0",\n          "title": "**** **** **** 2881 (Virtual)"\n        },\n        {\n          "id": "6c26ca80-39b7-4262-94b0-26a37ac801b5",\n          "title": "**** **** **** 9000 (Physical)"\n        },\n        {\n          "id": "5474550b-2949-4553-a8e4-85b97d5e2878",\n          "title": "**** **** **** 9001 (Physical)"\n        }\n      ]\n'}}
+Traceback (most recent call last):
+  File "C:\Apps New\Hackathon Procom\ProcomHackathon26Agent\graph.py", line 179, in mcp_node
+    response = await llm_with_tools.ainvoke(full_messages)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\runnables\base.py", line 5708, in ainvoke
+    return await self.bound.ainvoke(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 425, in ainvoke
+    llm_result = await self.agenerate_prompt(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 1132, in agenerate_prompt
+    return await self.agenerate(
+           ^^^^^^^^^^^^^^^^^^^^^
+        prompt_messages, stop=stop, callbacks=callbacks, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 1090, in agenerate
+    raise exceptions[0]
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 1359, in _agenerate_with_cache
+    result = await self._agenerate(
+             ^^^^^^^^^^^^^^^^^^^^^^
+        messages, stop=stop, run_manager=run_manager, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_openai\chat_models\base.py", line 1634, in _agenerate
+    raise e
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_openai\chat_models\base.py", line 1627, in _agenerate
+    raw_response = await self.async_client.with_raw_response.create(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **payload
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\_legacy_response.py", line 381, in wrapped
+    return cast(LegacyAPIResponse[R], await func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\resources\chat\completions\completions.py", line 2678, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+    ...<49 lines>...
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\_base_client.py", line 1884, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\_base_client.py", line 1669, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': "Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '{\n  "voice": "Here are your cards: 7***************02 (Physical), 7***************23 (Virtual), 7***************55 (Virtual), 6***************46 (Virtual), 4***************81 (Virtual), 6***************00 (Physical), 5***************01 (Physical)",\n  "visual": {\n    "type": "SELECTION_LIST",\n    "state": "initial",\n    "data": {\n      "title": "Your Cards",\n      "items": [\n        {\n          "id": "7b95eaeb-bbb0-4df7-a1ba-9bd364de64b7",\n          "title": "**** **** **** 9002 (Physical)"\n        },\n        {\n          "id": "a65d17ac-88d0-4609-85fe-59e41d1a00b9",\n          "title": "**** **** **** 1223 (Virtual)"\n        },\n        {\n          "id": "d18bf081-aea3-4783-b4fc-06923f7fe2b2",\n          "title": "**** **** **** 6255 (Virtual)"\n        },\n        {\n          "id": "60a06f71-1a82-44b2-ad03-f132e377bb10",\n          "title": "**** **** **** 2646 (Virtual)"\n        },\n        {\n          "id": "4684b54a-8120-44f7-bf0e-80b667ce20d0",\n          "title": "**** **** **** 2881 (Virtual)"\n        },\n        {\n          "id": "6c26ca80-39b7-4262-94b0-26a37ac801b5",\n          "title": "**** **** **** 9000 (Physical)"\n        },\n        {\n          "id": "5474550b-2949-4553-a8e4-85b97d5e2878",\n          "title": "**** **** **** 9001 (Physical)"\n        }\n      ]\n'}}
+Regex Recovery Failed: Expecting ',' delimiter: line 37 column 1 (char 1019)
+Error Str Snippet: 71-1a82-44b2-ad03-f132e377bb10",\n          "title": "Card ending with 2646"\n        },\n        {\n          "id": "4684b54a-8120-44f7-bf0e-80b667ce20d0",\n          "title": "Card ending with 2881 (FROZEN)"\n        },\n        {\n          "id": "6c26ca80-39b7-4262-94b0-26a37ac801b5",\n          "title": "Card ending with 9000 (FROZEN)"\n        },\n        {\n          "id": "5474550b-2949-4553-a8e4-85b97d5e2878",\n          "title": "Card ending with 9001 (FROZEN)"\n        }\n      ]\n'}}
+MCP Node Error: Error code: 400 - {'error': {'message': "Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '{\n  "voice": "Here are your cards: ",\n  "visual": {\n    "type": "SELECTION_LIST",\n    "data": {\n      "title": "Select a card",\n      "items": [\n        {\n          "id": "7b95eaeb-bbb0-4df7-a1ba-9bd364de64b7",\n          "title": "Card ending with 9002"\n        },\n        {\n          "id": "a65d17ac-88d0-4609-85fe-59e41d1a00b9",\n          "title": "Card ending with 1223"\n        },\n        {\n          "id": "d18bf081-aea3-4783-b4fc-06923f7fe2b2",\n          "title": "Card ending with 6255"\n        },\n        {\n          "id": "60a06f71-1a82-44b2-ad03-f132e377bb10",\n          "title": "Card ending with 2646"\n        },\n        {\n          "id": "4684b54a-8120-44f7-bf0e-80b667ce20d0",\n          "title": "Card ending with 2881 (FROZEN)"\n        },\n        {\n          "id": "6c26ca80-39b7-4262-94b0-26a37ac801b5",\n          "title": "Card ending with 9000 (FROZEN)"\n        },\n        {\n          "id": "5474550b-2949-4553-a8e4-85b97d5e2878",\n          "title": "Card ending with 9001 (FROZEN)"\n        }\n      ]\n'}}
+Traceback (most recent call last):
+  File "C:\Apps New\Hackathon Procom\ProcomHackathon26Agent\graph.py", line 179, in mcp_node
+    response = await llm_with_tools.ainvoke(full_messages)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\runnables\base.py", line 5708, in ainvoke
+    return await self.bound.ainvoke(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 425, in ainvoke
+    llm_result = await self.agenerate_prompt(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 1132, in agenerate_prompt
+    return await self.agenerate(
+           ^^^^^^^^^^^^^^^^^^^^^
+        prompt_messages, stop=stop, callbacks=callbacks, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 1090, in agenerate
+    raise exceptions[0]
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 1359, in _agenerate_with_cache
+    result = await self._agenerate(
+             ^^^^^^^^^^^^^^^^^^^^^^
+        messages, stop=stop, run_manager=run_manager, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_openai\chat_models\base.py", line 1634, in _agenerate
+    raise e
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_openai\chat_models\base.py", line 1627, in _agenerate
+    raw_response = await self.async_client.with_raw_response.create(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **payload
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\_legacy_response.py", line 381, in wrapped
+    return cast(LegacyAPIResponse[R], await func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\resources\chat\completions\completions.py", line 2678, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+    ...<49 lines>...
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\_base_client.py", line 1884, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\_base_client.py", line 1669, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': "Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '{\n  "voice": "Here are your cards: ",\n  "visual": {\n    "type": "SELECTION_LIST",\n    "data": {\n      "title": "Select a card",\n      "items": [\n        {\n          "id": "7b95eaeb-bbb0-4df7-a1ba-9bd364de64b7",\n          "title": "Card ending with 9002"\n        },\n        {\n          "id": "a65d17ac-88d0-4609-85fe-59e41d1a00b9",\n          "title": "Card ending with 1223"\n        },\n        {\n          "id": "d18bf081-aea3-4783-b4fc-06923f7fe2b2",\n          "title": "Card ending with 6255"\n        },\n        {\n          "id": "60a06f71-1a82-44b2-ad03-f132e377bb10",\n          "title": "Card ending with 2646"\n        },\n        {\n          "id": "4684b54a-8120-44f7-bf0e-80b667ce20d0",\n          "title": "Card ending with 2881 (FROZEN)"\n        },\n        {\n          "id": "6c26ca80-39b7-4262-94b0-26a37ac801b5",\n          "title": "Card ending with 9000 (FROZEN)"\n        },\n        {\n          "id": "5474550b-2949-4553-a8e4-85b97d5e2878",\n          "title": "Card ending with 9001 (FROZEN)"\n        }\n      ]\n'}}
+MCP Node Error: Error code: 400 - {'error': {'message': "Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '{"voice": "You spent a total of 201,039 PKR last month. The top category was food with 48,000 PKR spent.", "visual": {"type": "INFO_TABLE", "state": "", "data": {"title": "Spending Summary", "headers": ["Category", "Amount (PKR)"],'}}
+Traceback (most recent call last):
+  File "C:\Apps New\Hackathon Procom\ProcomHackathon26Agent\graph.py", line 179, in mcp_node
+    response = await llm_with_tools.ainvoke(full_messages)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\runnables\base.py", line 5708, in ainvoke
+    return await self.bound.ainvoke(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 425, in ainvoke
+    llm_result = await self.agenerate_prompt(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 1132, in agenerate_prompt
+    return await self.agenerate(
+           ^^^^^^^^^^^^^^^^^^^^^
+        prompt_messages, stop=stop, callbacks=callbacks, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 1090, in agenerate
+    raise exceptions[0]
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 1359, in _agenerate_with_cache
+    result = await self._agenerate(
+             ^^^^^^^^^^^^^^^^^^^^^^
+        messages, stop=stop, run_manager=run_manager, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_openai\chat_models\base.py", line 1634, in _agenerate
+    raise e
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_openai\chat_models\base.py", line 1627, in _agenerate
+    raw_response = await self.async_client.with_raw_response.create(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **payload
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\_legacy_response.py", line 381, in wrapped
+    return cast(LegacyAPIResponse[R], await func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\resources\chat\completions\completions.py", line 2678, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+    ...<49 lines>...
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\_base_client.py", line 1884, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\_base_client.py", line 1669, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': "Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '{"voice": "You spent a total of 201,039 PKR last month. The top category was food with 48,000 PKR spent.", "visual": {"type": "INFO_TABLE", "state": "", "data": {"title": "Spending Summary", "headers": ["Category", "Amount (PKR)"],'}}
+MCP Node Error: Error code: 400 - {'error': {'message': "Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '{\n  "voice": "You spent a total of PKR 201,039 last month. The top spending category was food at PKR 48,000.",\n  "visual": {\n    "type": "INFO_TABLE",\n    "data": {\n      "title": "Spending Summary",\n      "headers": ["Category", "Amount (PKR)"],\n'}}
+Traceback (most recent call last):
+  File "C:\Apps New\Hackathon Procom\ProcomHackathon26Agent\graph.py", line 179, in mcp_node
+    response = await llm_with_tools.ainvoke(full_messages)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\runnables\base.py", line 5708, in ainvoke
+    return await self.bound.ainvoke(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 425, in ainvoke
+    llm_result = await self.agenerate_prompt(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 1132, in agenerate_prompt
+    return await self.agenerate(
+           ^^^^^^^^^^^^^^^^^^^^^
+        prompt_messages, stop=stop, callbacks=callbacks, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 1090, in agenerate
+    raise exceptions[0]
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 1359, in _agenerate_with_cache
+    result = await self._agenerate(
+             ^^^^^^^^^^^^^^^^^^^^^^
+        messages, stop=stop, run_manager=run_manager, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_openai\chat_models\base.py", line 1634, in _agenerate
+    raise e
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_openai\chat_models\base.py", line 1627, in _agenerate
+    raw_response = await self.async_client.with_raw_response.create(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **payload
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\_legacy_response.py", line 381, in wrapped
+    return cast(LegacyAPIResponse[R], await func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\resources\chat\completions\completions.py", line 2678, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+    ...<49 lines>...
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\_base_client.py", line 1884, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\_base_client.py", line 1669, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': "Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '{\n  "voice": "You spent a total of PKR 201,039 last month. The top spending category was food at PKR 48,000.",\n  "visual": {\n    "type": "INFO_TABLE",\n    "data": {\n      "title": "Spending Summary",\n      "headers": ["Category", "Amount (PKR)"],\n'}}
+MCP Node Error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in organization `org_01jc8ayzwmet08ekwtmzc013gb` service tier `on_demand` on tokens per day (TPD): Limit 500000, Used 487698, Requested 13004. Please try again in 2m1.3056s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+Traceback (most recent call last):
+  File "C:\Apps New\Hackathon Procom\ProcomHackathon26Agent\graph.py", line 179, in mcp_node
+    response = await llm_with_tools.ainvoke(full_messages)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\runnables\base.py", line 5708, in ainvoke
+    return await self.bound.ainvoke(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 425, in ainvoke
+    llm_result = await self.agenerate_prompt(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 1132, in agenerate_prompt
+    return await self.agenerate(
+           ^^^^^^^^^^^^^^^^^^^^^
+        prompt_messages, stop=stop, callbacks=callbacks, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 1090, in agenerate
+    raise exceptions[0]
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 1359, in _agenerate_with_cache
+    result = await self._agenerate(
+             ^^^^^^^^^^^^^^^^^^^^^^
+        messages, stop=stop, run_manager=run_manager, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_openai\chat_models\base.py", line 1634, in _agenerate
+    raise e
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_openai\chat_models\base.py", line 1627, in _agenerate
+    raw_response = await self.async_client.with_raw_response.create(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **payload
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\_legacy_response.py", line 381, in wrapped
+    return cast(LegacyAPIResponse[R], await func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\resources\chat\completions\completions.py", line 2678, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+    ...<49 lines>...
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\_base_client.py", line 1884, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\_base_client.py", line 1669, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in organization `org_01jc8ayzwmet08ekwtmzc013gb` service tier `on_demand` on tokens per day (TPD): Limit 500000, Used 487698, Requested 13004. Please try again in 2m1.3056s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+MCP Node Error: Error code: 413 - {'error': {'message': 'Request too large for model `moonshotai/kimi-k2-instruct-0905` in organization `org_01jc8ayzwmet08ekwtmzc013gb` service tier `on_demand` on tokens per minute (TPM): Limit 10000, Requested 12857, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+Traceback (most recent call last):
+  File "C:\Apps New\Hackathon Procom\ProcomHackathon26Agent\graph.py", line 179, in mcp_node
+    response = await llm_with_tools.ainvoke(full_messages)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\runnables\base.py", line 5708, in ainvoke
+    return await self.bound.ainvoke(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 425, in ainvoke
+    llm_result = await self.agenerate_prompt(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 1132, in agenerate_prompt
+    return await self.agenerate(
+           ^^^^^^^^^^^^^^^^^^^^^
+        prompt_messages, stop=stop, callbacks=callbacks, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 1090, in agenerate
+    raise exceptions[0]
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_core\language_models\chat_models.py", line 1359, in _agenerate_with_cache
+    result = await self._agenerate(
+             ^^^^^^^^^^^^^^^^^^^^^^
+        messages, stop=stop, run_manager=run_manager, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_openai\chat_models\base.py", line 1634, in _agenerate
+    raise e
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\langchain_openai\chat_models\base.py", line 1627, in _agenerate
+    raw_response = await self.async_client.with_raw_response.create(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **payload
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\_legacy_response.py", line 381, in wrapped
+    return cast(LegacyAPIResponse[R], await func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\resources\chat\completions\completions.py", line 2678, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+    ...<49 lines>...
+    )
+    ^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\_base_client.py", line 1884, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alish\AppData\Roaming\Python\Python313\site-packages\openai\_base_client.py", line 1669, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.APIStatusError: Error code: 413 - {'error': {'message': 'Request too large for model `moonshotai/kimi-k2-instruct-0905` in organization `org_01jc8ayzwmet08ekwtmzc013gb` service tier `on_demand` on tokens per minute (TPM): Limit 10000, Requested 12857, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}

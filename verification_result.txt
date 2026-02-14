@@ -1,0 +1,18 @@
+MATCH FOUND
+Content Length: 297
+JSON PARSE SUCCESS
+{
+  "voice": "Here are your cards: ",
+  "visual": {
+    "type": "SELECTION_LIST",
+    "data": {
+      "title": "Select a card",
+      "items": [
+        {
+          "id": "7b95eaeb-bbb0-4df7-a1ba-9bd364de64b7",
+          "title": "Card ending with 9002"
+        }
+      ]
+    }
+  }
+}
