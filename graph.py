@@ -146,7 +146,7 @@ async def mcp_node(state: AgentState):
         WIDGET TYPES & DATA:
         - "COMPOSITE_FORM": When you need user input (e.g., amount, recipient). Data: {"title": "Title", "widgets": [{"id": "field_id", "type": "input_type", "label": "Label"}]}
         - "CONFIRMATION_CARD": Before executing a transfer or payment. Data: {"title": "Confirm", "fields": [{"label": "To", "value": "..."}, {"label": "Amount", "value": "..."}]}
-        - "SELECTION_LIST": When offering choices (e.g., which card). Data: {"title": "Select", "items": [{"id": "item_id", "title": "..."}]}
+        - "SELECTION_LIST": When offering choices (e.g., which card). Data: {"title": "Select", "items": [{"id": "item_id", "title": "Card ... (Include Last 4, Balance, Expiry etc.)"}]}
         - "INFO_TABLE": For lists of data (transactions, bills). Data: {"title": "History", "headers": [...], "rows": [[...]]}
         - "SECURITY_CHALLENGE": When you need a PIN. Data: {"method": "pin", "length": 4}
         - "TEXT_BUBBLE": Default for general conversation. Data: {"markdown": "..."}
@@ -166,6 +166,8 @@ async def mcp_node(state: AgentState):
         2. Use tools for real actions.
         3. Output JSON only. Do not wrap in markdown code blocks.
         4. CRITICAL: DO NOT rely on past conversation history for data. ALWAYS call the relevant tool again to get fresh data for every request.
+        5. CRITICAL: NEVER invent or hallucinate data for function arguments. If the user has not provided specific details (like 'limit', 'pin', 'label', 'amount', 'recipient'), you MUST NOT call the tool. Instead, return a "COMPOSITE_FORM" or a question to get the missing details.
+        6. For "create_virtual_card", "execute_transfer", "pay_bill", you MUST have explicit user confirmation and details.
         """)
         
         new_messages = []

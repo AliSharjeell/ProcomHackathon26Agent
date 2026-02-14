@@ -323,3 +323,106 @@ Repair FAILED with ']}}': Expecting property name enclosed in double quotes: lin
 Repair FAILED with '"]}': Unterminated string starting at: line 8 column 1 (char 247)
 Repair FAILED with '"]}}': Unterminated string starting at: line 8 column 1 (char 247)
 Repair FAILED with '": null}}': Unterminated string starting at: line 8 column 1 (char 247)
+Extracted: {
+  "voice": "Here are your cards: 1702 ending with **** **** ****, 4647 ending with **** **** ****, 4074 ending with **** **** ****, and 6417 ending with **** **** ****.",
+  "visual": {
+    "type": "SELECTION_LIST",
+    "data": {
+      "title": "Your Cards",
+      "items": [
+        {
+          "id": "483d5f68-f5e9-45e2-bebe-1aecb03540ac",
+          "title": "**** **** **** 1702"
+        },
+        {
+          "id": "1a386117-6127-4fab-b638-f30a378ebaed",
+          "title": "**** **** **** 4647"
+        },
+        {
+          "id": "c453698c-0255-4f20-9c5a-1b1053be7363",
+          "title": "**** **** **** 4074"
+        },
+        {
+          "id": "d1c9aff0-19be-4d97-9cbc-e7979552ce4f",
+          "title": "**** **** **** 6417"
+        }
+      ]
+
+Extracted: {
+  "voice": "The recipient not found. Please save the contact first.",
+  "visual": {
+    "type": "COMPOSITE_FORM",
+    "data": {
+      "title": "Save Contact",
+      "widgets": [
+        {
+          "id": "account_number",
+          "type": "input",
+          "label": "Account Number"
+        },
+        {
+          "id": "nickname",
+          "type": "input",
+          "label": "Nickname"
+        }
+      ]
+
+Extracted: {
+  "voice": "Here are your cards: 1702 ending with **** **** ****, 4647 ending with **** **** ****, 4074 ending with **** **** ****, and 6417 ending with **** **** ****.",
+  "visual": {
+    "type": "SELECTION_LIST",
+    "data": {
+      "title": "Your Cards",
+      "items": [{"id": "483d5f68-f5e9-45e2-bebe-1aecb03540ac", "title": "**** **** **** 1702"}, {"id": "1a386117-6127-4fab-b638-f30a378ebaed", "title": "**** **** **** 4647"}, {"id": "c453698c-0255-4f20-9c5a-1b1053be7363", "title": "**** **** **** 4074"}, {"id": "d1c9aff0-19be-4d97-9cbc-e7979552ce4f", "title": "**** **** **** 6417"}]
+Extracted: [
+  {
+    "name": "create_virtual_card",
+    "parameters": {
+      "label": "Online Shopping",
+      "limit": "10000",
+      "pin": "1234"
+    }
+  }
+]
+Extracted: {
+  "voice": "Here are your cards: ",
+  "visual": {
+    "type": "SELECTION_LIST",
+    "data": {
+      "title": "Select a card",
+      "items": [
+        {
+          "id": "483d5f68-f5e9-45e2-bebe-1aecb03540ac",
+          "title": "Card ending with 1702"
+        },
+        {
+          "id": "1a386117-6127-4fab-b638-f30a378ebaed",
+          "title": "Card ending with 4647"
+        },
+        {
+          "id": "c453698c-0255-4f20-9c5a-1b1053be7363",
+          "title": "Card ending with 4074"
+        },
+        {
+          "id": "d1c9aff0-19be-4d97-9cbc-e7979552ce4f",
+          "title": "Card ending with 6417"
+        },
+        {
+          "id": "7cbd8c33-e310-4c0a-a41b-ea0c6d4fb2c9",
+          "title": "Card ending with 6623 (Virtual)"
+        }
+      ]
+
+Extracted: {
+  "voice": "Your K Electric bill has arrived. The amount due is PKR 8,500. Would you like to pay it?",
+  "visual": {
+    "type": "CONFIRMATION_CARD",
+    "data": {
+      "title": "Pay K Electric Bill",
+      "fields": [
+        {
+          "label": "Amount",
+          "value": "PKR 8,500"
+        }
+      ]
+
