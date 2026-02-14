@@ -426,3 +426,40 @@ Extracted: {
         }
       ]
 
+Extracted: {"voice": "Here are your cards: 1702 ending with **** **** ****, 4647 ending with **** **** ****, 4074 ending with **** **** ****, 6417 ending with **** **** ****, and 2645 ending with **** **** ****.", "visual": {"type": "SELECTION_LIST", "data": {"title": "Your Cards", "items": [{"id": "483d5f68-f5e9-45e2-bebe-1aecb03540ac", "title": "**** **** **** 1702"}, {"id": "1a386117-6127-4fab-b638-f30a378ebaed", "title": "**** **** **** 4647"}, {"id": "c453698c-0255-4f20-9c5a-1b1053be7363", "title": "**** **** **** 4074"}, {"id": "d1c9aff0-19be-4d97-9cbc-e7979552ce4f", "title": "**** **** **** 6417"}, {"id": "6778251f-ba38-435a-89c9-d51cdf056f98", "title": "**** **** **** 2645"}]
+Extracted: {
+  "voice": "Preview of transfer to Ali Khan: PKR 500.00. Your balance after transfer: PKR 141,000.00. Please confirm to proceed.",
+  "visual": {
+    "type": "CONFIRMATION_CARD",
+    "data": {
+      "title": "Confirm Transfer",
+      "fields": [
+        {
+          "label": "To",
+          "value": "Ali Khan"
+        },
+        {
+          "label": "Amount",
+          "value": "PKR 500"
+        }
+      ]
+
+Extracted: {
+  "voice": "Your internet bill status is not available. Please provide more details like account number or biller ID to check the status.",
+  "visual": {
+    "type": "COMPOSITE_FORM",
+    "data": {
+      "title": "Check Internet Bill",
+      "widgets": [
+        {
+          "id": "consumer_number",
+          "type": "input",
+          "label": "Consumer Number"
+        },
+        {
+          "id": "biller_id",
+          "type": "input",
+          "label": "Biller ID"
+        }
+      ]
+
